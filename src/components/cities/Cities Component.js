@@ -14,6 +14,7 @@ class CitiesComponent extends Component {
         {name: 'Ternopil', population: 250000, country: 'Ukraine', region:
     'Ternopilska obl.'}
     ];
+
     render() {
         return (
             <div>
