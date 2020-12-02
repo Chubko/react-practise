@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import CitiesComponent from "./components/cities/Cities Component";
+import CarsComponent from "./components/cars/Cars Component";
+import UsersComponent from "./components/users/Users Component";
+import CountriesComponent from "./components/countries/Countries Component";
+import PetsComponent from "./components/pets/Pets Component";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+    render() {
+        return(
+            <div>
+                <CarsComponent/>
+                <CitiesComponent/>
+                <UsersComponent/>
+                <CountriesComponent/>
+                <PetsComponent/>
+            </div>
+    )
+    }
 }
 
 export default App;
