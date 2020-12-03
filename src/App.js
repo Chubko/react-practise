@@ -4,6 +4,7 @@ import CarsComponent from "./components/cars/Cars Component";
 import UsersComponent from "./components/users/Users Component";
 import CountriesComponent from "./components/countries/Countries Component";
 import PetsComponent from "./components/pets/Pets Component";
+import AllUsersComponent from "./components/All Users Component/All Users Component";
 
 class App extends Component {
 
@@ -15,6 +16,7 @@ class App extends Component {
                 <UsersComponent/>
                 <CountriesComponent/>
                 <PetsComponent/>
+                <AllUsersComponent/>
             </div>
     )
     }
