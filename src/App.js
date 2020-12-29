@@ -1,23 +1,39 @@
-import React, {Component} from 'react';
-import CitiesComponent from "./components/cities/Cities Component";
-import CarsComponent from "./components/cars/Cars Component";
-import UsersComponent from "./components/users/Users Component";
-import CountriesComponent from "./components/countries/Countries Component";
-import PetsComponent from "./components/pets/Pets Component";
+import React, {useEffect, useCallback} from 'react';
+import './styles.css';
+import {useSelector, useDispatch} from "react-redux";
+import {Header} from "./components/header";
+import {ProductList} from "./components/product-list";
+import {useServices} from "./services";
+import {setProducts} from "./redux/action-creators";
 
-class App extends Component {
+export default function App()  {
+    const {cart, wishlist, products} = useSelector(
+        ({ cart:{cart}, wishlist:{wishlist}, products:{products} }) => ({
+            cart,
+            wishlist,
+            products
+    })
+    );
+    const dispatch = useDispatch();
 
-    render() {
+
+    // const fetchData = useCallback(async() => {
+    //     const response = await productsService.getProducts();
+    //     const json = await response.json();
+    //     dispatch(setProducts(json));
+    // }, []);
+
+    useEffect(()=>{
+        // fetchData();
+        dispatch(setProducts());
+    }, []);
+
         return(
-            <div>
-                <CarsComponent/>
-                <CitiesComponent/>
-                <UsersComponent/>
-                <CountriesComponent/>
-                <PetsComponent/>
+            <div className='App'>
+                <Header/>
+                <ProductList products={products}/>
             </div>
     )
-    }
+
 }
 
-export default App;

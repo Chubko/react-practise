@@ -1,0 +1,27 @@
+.App{
+    font-family: sans-serif;
+    text-align: center;
+}
+
+header{
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    background-color: lightcoral;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.justify-between{
+    justify-content: space-between;
+}
+
+.mx-10{
+    margin: 0 10px;
+}
+
+.align-center{
+    align-items: center;
+}
