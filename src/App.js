@@ -16,23 +16,23 @@ export default function App() {
     }
     console.log(users)
 
-    // let selectedId;
-    // //
-    // const selectUser = (e) => {
-    //     selectedId = e.target.value.id;
-    // console.log(selectedId)
-    // }
-    // console.log(selectedId)
-    let id;
+    let selectedId;
 
-    const selectUser = (event)=>{
-        users.map(user => {
-            // if(user.options[0].selected == true){
-                console.log(user.options)
-            // }
-        })
-
+    const selectUser = (e) => {
+        selectedId = e.target.value.userId;
+    console.log(selectedId)
     }
+    console.log(selectedId)
+
+
+    // const selectUser = (event)=>{
+    //     users.map(user => {
+    //         // if(user.options[0].selected == true){
+    //             console.log(user.options)
+    //         // }
+    //     })
+    //
+    // }
     const removeUser = (e, id)=>{
         e.preventDefault();
         let usersUpdate = users.filter((user)=>user.userId !==id)
@@ -52,14 +52,7 @@ export default function App() {
                 <button>save</button>
             </form>
             <form>
-                <select status ={false} onChange={(status) =>{{
-                    users.map(user => {
-                        if(status === true){
-                        console.log(status)
-                        }
-                    })
-
-                }}}>
+                <select status ={false} onChange={}>
                 {users.map(user =>
                 <option key={user.userId}>
                     {user.userName}-{user.userAge}
