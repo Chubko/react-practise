@@ -1,10 +1,10 @@
-import React, {useEffect, useCallback} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import './styles.css';
-import {useSelector, useDispatch} from "react-redux";
-import {Header} from "./components/header";
+import {useDispatch, useSelector} from "react-redux";
 import {ProductList} from "./components/product-list";
-import {useServices} from "./services";
 import {setProducts} from "./redux/action-creators";
+import {Header} from "./components/header";
+
 
 export default function App()  {
     const {cart, wishlist, products} = useSelector(
@@ -15,6 +15,14 @@ export default function App()  {
     })
     );
     const dispatch = useDispatch();
+
+    const priceTotalCart = useMemo(() => {
+        return cart.reduce((acc, value) => acc += value.price, 0);
+    }, [cart]);
+    const priceTotalWishlist= useMemo(() => {
+        return wishlist.reduce((acc, value) => acc += value.price, 0);
+    }, [wishlist]);
+
 
 
     // const fetchData = useCallback(async() => {
@@ -30,10 +38,9 @@ export default function App()  {
 
         return(
             <div className='App'>
-                <Header/>
+                <Header priceTotalCart={priceTotalCart} priceTotalWishlist={priceTotalWishlist}/>
                 <ProductList products={products}/>
             </div>
     )
-
 }
 
