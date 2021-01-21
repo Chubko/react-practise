@@ -34,7 +34,7 @@ export default function App(){
                             key={user.userId}
                         />
                         <Button removeUser={removeUser} id={user.userId} value={'delete'}/>
-                        <Button value={'edit'}/>
+                        <button>edit</button>
                     </>
                     )}
             </div>
